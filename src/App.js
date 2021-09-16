@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useCallback, useEffect, useRef, useState } from "react";
+import useMemoizedCallback from "./useMemoizedCallback";
+import ContainerA from "./ContainerA";
+import ProjectScreen from "./ProjectScreen";
 
 function App() {
+  const [showProject, setShowProject] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div onClick={() => setShowProject(false)}>CLICK FOR CLEANUP</div>
+      {showProject ? <ProjectScreen /> : ""}
+    </>
   );
 }
 
